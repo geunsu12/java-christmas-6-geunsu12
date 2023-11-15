@@ -12,7 +12,7 @@ public class InputValidator {
     private InputValidator() {}
 
     public static void validateUserInputDate(String userInput) throws IllegalArgumentException {
-        if(!userInput.matches("^[0-9]+$")) {
+        if(!userInput.matches("^[0-9]+$")||userInput.length()>MAX_INT_LENGTH) {
             throw new IllegalArgumentException(ERROR_MESSAGE_DATE);
         }
     }
