@@ -14,7 +14,7 @@ public class Discount {
     private static final int SPECIAL_INDEX = 3;
     private static final int GIFT_INDEX = 4;
 
-    private List<Integer> discount;
+    private final List<Integer> discount;
 
     private Discount(Bill bill, Date date) {
 //      [디데이할인, 평일할인, 주말할인, 특별할인, 증정이벤트]

@@ -10,7 +10,7 @@ import static christmas.validator.InputValidator.validateTotalQuantity;
 
 public class Bill {
     private int totalMoney;
-    private ArrayList<Integer> bill;
+    private final ArrayList<Integer> bill;
 
     private Bill(Dishes dishes) {
         this.totalMoney = 0;
