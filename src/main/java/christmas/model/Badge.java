@@ -10,7 +10,7 @@ public class Badge {
         if (discount >= FIRST_THRESHOLD) { this.badge = FIRST_BADGE; }
         if (discount >= SECOND_THRESHOLD && discount < FIRST_THRESHOLD) { this.badge = SECOND_BADGE; }
         if (discount >= THIRD_THRESHOLD && discount < SECOND_THRESHOLD) { this.badge =  THIRD_BADGE; }
-        if (discount < THIRD_THRESHOLD) { this.badge = "없음"; }
+        if (discount < THIRD_THRESHOLD) { this.badge = NON_BADGE; }
     }
 
     public static Badge createBadgeFrom(int discount) {
