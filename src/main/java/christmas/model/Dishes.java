@@ -15,7 +15,5 @@ public class Dishes {
         return new Dishes(userInput);
     }
 
-    public HashMap<String, Integer> getDishes() {
-        return dishes;
-    }
+    public HashMap<String, Integer> getDishes() { return new HashMap<String, Integer>(dishes); }
 }
