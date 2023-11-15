@@ -1,6 +1,7 @@
 package christmas.controller;
 
 import christmas.model.*;
+import christmas.template.ExceptionTemplate;
 import christmas.view.OutputView;
 
 import static christmas.model.Bill.createBillFrom;
@@ -23,28 +24,21 @@ public class MainController {
 
     public void createDateWithException() {
         OutputView.printWelcomeMessage();
-        while (true) {
-            try {
-                date = createDateFrom(readLine());
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        ExceptionTemplate.execute(this::createDate);
+    }
 
+    private void createDate() {
+        date = createDateFrom(readLine());
     }
 
     public void createDishesNBillWithException() {
         printGetOrderMessage();
-        while (true) {
-            try {
-                dishes = createDishesFrom(readLine());
-                bill = createBillFrom(dishes);
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        ExceptionTemplate.execute(this::createDishesNBill);
+    }
+
+    private void createDishesNBill() {
+        dishes = createDishesFrom(readLine());
+        bill = createBillFrom(dishes);
     }
 
     public void runDiscount() {
