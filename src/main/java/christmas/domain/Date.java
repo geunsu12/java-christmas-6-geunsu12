@@ -25,12 +25,8 @@ public class Date {
     }
 
     public int getCountDay() {
-        if (date > CHRISTMAS_DAY) {
-            return 0;
-        }
-        else {
-            return date-1+10;
-        }
+        if (date > CHRISTMAS_DAY) { return 0; }
+        return date-1+10;
     }
 
     public boolean isStarDay() {

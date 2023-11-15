@@ -36,8 +36,6 @@ public class Discount {
         discount.set(GIFT_INDEX, getGiftDiscount(bill.isOverGiftThreshold()));
     }
 
-    public List<Integer> getDiscount() { return discount; }
-
     public int getEachDiscount(int index) { return discount.get(index); }
 
     public int getTotalDiscountNGift() {
@@ -48,19 +46,13 @@ public class Discount {
 
     public int getTotalDiscount() {
         int sum = 0;
-        for (int i=0; i<4; i++) {
-            sum += discount.get(i);
-        }
+        for (int i=0; i<4; i++) { sum += discount.get(i); }
         return sum;
     }
 
     public String isGivenGift() {
-        if (discount.get(GIFT_INDEX) == 25000) {
-            return "샴페인 1개\n";
-        }
-        else {
-            return "없음\n";
-        }
+        if (discount.get(GIFT_INDEX) == 25000) { return "샴페인 1개\n"; }
+        return "없음\n";
     }
 
 }
