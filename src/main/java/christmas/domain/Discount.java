@@ -56,10 +56,10 @@ public class Discount {
 
     public String isGivenGift() {
         if (discount.get(GIFT_INDEX) == 25000) {
-            return "샴페인 1개";
+            return "샴페인 1개\n";
         }
         else {
-            return "없음";
+            return "없음\n";
         }
     }
 
