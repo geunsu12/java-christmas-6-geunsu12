@@ -23,9 +23,9 @@ public class Constants {
 
     public static class DISCOUNT {
         public static final int D_DAY_UNIT = 100;
-        public static final int WEEK_UNIT = 25;
+        public static final int WEEK_UNIT = 2023;
         public static final int SPECIAL_UNIT = 1000;
-        public static final int GIFT_UNIT = 25;
+        public static final int GIFT_UNIT = 25000;
     }
 
     public static class BADGE {
