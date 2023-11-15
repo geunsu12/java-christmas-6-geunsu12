@@ -36,6 +36,7 @@ public class Constants {
         public static final String FIRST_BADGE = "산타";
         public static final String SECOND_BADGE = "트리";
         public static final String THIRD_BADGE = "별";
+        public static final String NON_BADGE = "없음";
 
     }
 
@@ -50,6 +51,10 @@ public class Constants {
         public static final int SUNDAY = 3;
 
         public static final int CHRISTMAS_DAY = 25;
+        
+//      디데이 카운트 할인 금액 디폴트값 1000원
+        public static final int COUNT_BIAS = 10;
+
 
     }
 
