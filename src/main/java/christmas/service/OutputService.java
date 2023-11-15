@@ -1,12 +1,8 @@
 package christmas.service;
 
-import christmas.domain.Bill;
-import christmas.domain.Discount;
-import christmas.domain.Dishes;
+import christmas.domain.*;
 
 import java.util.Map;
-
-import static christmas.util.utils.addComma;
 
 public class OutputService {
     private static final String[] discountOut = new String[]{
@@ -15,43 +11,64 @@ public class OutputService {
 
     private OutputService() {}
 
-    public static void printTotalMoney(Bill bill) {
-        System.out.println(addComma(bill.getTotalMoney())+"원");
+    public static String generateOutputMessage(Bill bill, Discount discount, Date date, Dishes dishes, Badge badge) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n", date.getDate()));
+        sb.append("\n<주문 메뉴>\n");
+        appendDishes(sb, dishes);
+        sb.append("\n<할인 전 총주문 금액>\n");
+        appendTotalMoney(sb, bill);
+        sb.append("\n<증정 메뉴>\n");
+        appendGift(sb, discount);
+        sb.append("\n<혜택 내역>\n");
+        appendDiscountDetail(sb, discount);
+        sb.append("\n<총혜택 금액>\n");
+        appendTotalDiscount(sb, discount);
+        sb.append("\n<할인 후 예상 결제 금액>\n");
+        appendTotalPrice(sb, bill, discount);
+        sb.append("\n<12월 이벤트 배지>\n");
+        appendBadge(sb, badge);
+        return sb.toString();
     }
 
-    public static void printDishes(Dishes dishes) {
+
+    private static void appendTotalMoney(StringBuilder sb, Bill bill) {
+        sb.append(String.format("%,d원\n", bill.getTotalMoney()));
+    }
+
+    private static void appendDishes(StringBuilder sb, Dishes dishes) {
         for (Map.Entry<String, Integer> eachDish : dishes.getDishes().entrySet()) {
-            System.out.println(eachDish.getKey() + String.format(" %d개", eachDish.getValue()));
+            sb.append(String.format("%s %d개\n", eachDish.getKey(), eachDish.getValue()));
         }
     }
 
-    public static void printGift(Discount discount) {
-        System.out.println(discount.isGivenGift());
+    private static void appendGift(StringBuilder sb, Discount discount) {
+        sb.append(discount.isGivenGift());
     }
 
-    public static void printDiscountDetail(Discount discount) {
+    private static void appendDiscountDetail(StringBuilder sb, Discount discount) {
         boolean isNotDiscount = true;
         for(int i=0;i<5;i++) {
             int tmp = discount.getEachDiscount(i)*-1;
             if (tmp != 0) {
-                System.out.println(discountOut[i] + ": " + addComma(tmp) + "원");
+                sb.append(String.format("%s : %,d원\n",discountOut[i],tmp));
                 isNotDiscount = false;
             }
         }
         if (isNotDiscount) {
-            System.out.println("없음");
+            sb.append("없음\n");
         }
     }
 
-    public static void printTotalDiscount(Discount discount) {
-        int sum = discount.getTotalDiscountNGift()*-1;
-        System.out.println(addComma(sum) + "원");
+    private static void appendTotalDiscount(StringBuilder sb, Discount discount) {
+        sb.append(String.format("%,d원\n",discount.getTotalDiscountNGift()*-1));
     }
 
-    public static void printTotalPrice(Bill bill, Discount discount) {
-        int totalPrice = bill.getTotalMoney() - discount.getTotalDiscount();
-        System.out.println( addComma(totalPrice) + "원");
-
+    private static void appendTotalPrice(StringBuilder sb, Bill bill, Discount discount) {
+        sb.append( String.format("%,d원\n",bill.getTotalMoney() - discount.getTotalDiscount()));
     }
 
+    private static void appendBadge(StringBuilder sb, Badge badge) {
+        sb.append(badge.getBadge());
+    }
 }
