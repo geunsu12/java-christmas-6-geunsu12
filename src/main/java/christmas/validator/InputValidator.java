@@ -1,7 +1,5 @@
 package christmas.validator;
 
-import christmas.constants.MenuConstants;
-
 import java.util.*;
 
 import static christmas.constants.Constants.*;
@@ -14,7 +12,7 @@ public class InputValidator {
     private InputValidator() {}
 
     public static void validateUserInputDate(String userInput) throws IllegalArgumentException {
-        if(!userInput.matches("^[0-9]*$")) {
+        if(!userInput.matches("^[0-9]+$")) {
             throw new IllegalArgumentException(ERROR_MESSAGE_DATE);
         }
     }
@@ -33,7 +31,7 @@ public class InputValidator {
 
     public static void validateUserInputOutOfRange(int userInput, int minRange, int maxRange) throws IllegalArgumentException {
         if (userInput < minRange || userInput > maxRange) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ERROR_MESSAGE_MENU);
         }
     }
 
