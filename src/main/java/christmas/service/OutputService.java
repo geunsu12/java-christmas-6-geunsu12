@@ -1,6 +1,6 @@
 package christmas.service;
 
-import christmas.domain.*;
+import christmas.model.*;
 
 import java.util.Map;
 

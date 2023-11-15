@@ -1,12 +1,12 @@
 package christmas.controller;
 
-import christmas.domain.*;
+import christmas.model.*;
 import christmas.view.OutputView;
 
-import static christmas.domain.Bill.createBillFrom;
-import static christmas.domain.Date.createDateFrom;
-import static christmas.domain.Discount.createDiscountOf;
-import static christmas.domain.Dishes.createDishesFrom;
+import static christmas.model.Bill.createBillFrom;
+import static christmas.model.Date.createDateFrom;
+import static christmas.model.Discount.createDiscountOf;
+import static christmas.model.Dishes.createDishesFrom;
 import static christmas.view.InputView.readLine;
 import static christmas.view.OutputView.printGetOrderMessage;
 import static christmas.view.OutputView.printOutputMessage;

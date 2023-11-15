@@ -1,6 +1,6 @@
 package christmas.view;
 
-import christmas.domain.*;
+import christmas.model.*;
 
 import static christmas.service.OutputService.*;
 

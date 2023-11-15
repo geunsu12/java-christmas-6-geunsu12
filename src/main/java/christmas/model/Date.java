@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.model;
 
 import static christmas.constants.Constants.*;
 import static christmas.constants.Constants.CALENDER.*;

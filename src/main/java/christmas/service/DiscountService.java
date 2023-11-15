@@ -1,6 +1,6 @@
 package christmas.service;
 
-import christmas.domain.Date;
+import christmas.model.Date;
 
 import static christmas.constants.Constants.DISCOUNT.*;
 
