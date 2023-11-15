@@ -5,6 +5,7 @@ import christmas.domain.Date;
 import static christmas.constants.Constants.DISCOUNT.*;
 
 public class DiscountService {
+
     private DiscountService() {}
 
     public static int getDDayDiscountEvent(Date date) {
@@ -16,21 +17,13 @@ public class DiscountService {
     }
 
     public static int getSpecialDiscount(Date date) {
-        if (date.isStarDay()) {
-            return SPECIAL_UNIT;
-        }
-        else {
-            return 0;
-        }
+        if (date.isStarDay()) { return SPECIAL_UNIT; }
+        return 0;
     }
 
     public static int getGiftDiscount(Boolean isOvered) {
-        if (isOvered) {
-            return GIFT_UNIT;
-        }
-        else {
-            return 0;
-        }
+        if (isOvered) { return GIFT_UNIT; }
+        return 0;
     }
 
 }
