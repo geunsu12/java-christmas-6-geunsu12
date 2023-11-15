@@ -51,11 +51,9 @@ public class Constants {
         public static final int SUNDAY = 3;
 
         public static final int CHRISTMAS_DAY = 25;
-        
+
 //      디데이 카운트 할인 금액 디폴트값 1000원
         public static final int COUNT_BIAS = 10;
-
-
     }
 
 }
