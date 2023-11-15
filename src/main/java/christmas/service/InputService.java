@@ -17,7 +17,6 @@ public class InputService {
         String[] userInputs = userInput.split(WHOLE_SENTENCE_DELIMITER);
         HashMap<String, Integer> result = new HashMap<String, Integer>();
         for(String eachInput : userInputs) {
-            System.out.println(eachInput);
             validateUserMenuInput(eachInput);
             validateNPutEachInput(eachInput,result);
         }
