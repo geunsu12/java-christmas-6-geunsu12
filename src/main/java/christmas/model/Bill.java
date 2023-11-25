@@ -10,7 +10,7 @@ import static christmas.validator.InputValidator.validateTotalQuantity;
 
 public class Bill {
     private int totalMoney;
-    private final ArrayList<Integer> bill;
+    private final List<Integer> bill;
 
     private Bill(Dishes dishes) {
         this.totalMoney = 0;
@@ -25,7 +25,7 @@ public class Bill {
         return new Bill(dishes);
     }
 
-    private void createBills(HashMap<String, Integer> dishes) {
+    private void createBills(Map<String, Integer> dishes) {
         for (Map.Entry<String, Integer> eachDish : dishes.entrySet()) {
             MenuConstants menu = createMenuConstantsFrom(eachDish.getKey());
             bill.set(menu.getType(), bill.get(menu.getType()) + eachDish.getValue());
