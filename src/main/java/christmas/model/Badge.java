@@ -1,16 +1,16 @@
 package christmas.model;
 
-import static christmas.constants.Constants.BADGE.*;
+import static christmas.constants.Constants.BADGE;
 
 public class Badge {
 
     private String badge;
 
     private Badge(int discount) {
-        if (discount >= FIRST_THRESHOLD) { this.badge = FIRST_BADGE; }
-        if (discount >= SECOND_THRESHOLD && discount < FIRST_THRESHOLD) { this.badge = SECOND_BADGE; }
-        if (discount >= THIRD_THRESHOLD && discount < SECOND_THRESHOLD) { this.badge =  THIRD_BADGE; }
-        if (discount < THIRD_THRESHOLD) { this.badge = NON_BADGE; }
+        if (discount >= BADGE.FIRST_THRESHOLD) { this.badge = BADGE.FIRST_BADGE; }
+        if (discount >= BADGE.SECOND_THRESHOLD && discount < BADGE.FIRST_THRESHOLD) { this.badge = BADGE.SECOND_BADGE; }
+        if (discount >= BADGE.THIRD_THRESHOLD && discount < BADGE.SECOND_THRESHOLD) { this.badge =  BADGE.THIRD_BADGE; }
+        if (discount < BADGE.THIRD_THRESHOLD) { this.badge = BADGE.NON_BADGE; }
     }
 
     public static Badge createBadgeFrom(int discount) {
