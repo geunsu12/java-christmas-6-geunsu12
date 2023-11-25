@@ -1,10 +1,10 @@
 package christmas.model;
 
+import christmas.constants.Constants;
 import christmas.constants.MenuConstants;
 
 import java.util.*;
 
-import static christmas.constants.Constants.*;
 import static christmas.constants.MenuConstants.createMenuConstantsFrom;
 import static christmas.validator.InputValidator.validateTotalQuantity;
 
@@ -18,7 +18,7 @@ public class Bill {
 //      [appetizer, main_food, desserts, drinks]
         this.bill = new ArrayList<>(Arrays.asList(0,0,0,0));
         createBills(dishes.getDishes());
-        validateTotalQuantity(getTotalQuantity(), bill.get(DRINK));
+        validateTotalQuantity(getTotalQuantity(), bill.get(Constants.DRINK_IDX));
     }
 
     public static Bill createBillFrom(Dishes dishes) {
@@ -34,21 +34,21 @@ public class Bill {
     }
 
     public boolean isDiscountable() {
-        return totalMoney >= DISCOUNT_THRESHOLD;
+        return totalMoney >= Constants.DISCOUNT_THRESHOLD;
     }
 
     public int getWeekendDiscountQuantity(Date date) {
-        if (date.isWeekend()) { return bill.get(MAIN); }
+        if (date.isWeekend()) { return bill.get(Constants.MAIN_IDX); }
         return 0;
     }
 
     public int getWeekdayDiscountQuantity(Date date) {
-        if (!date.isWeekend()) { return bill.get(DESSERT); }
+        if (!date.isWeekend()) { return bill.get(Constants.DESSERT_IDX); }
         return 0;
     }
 
     public boolean isOverGiftThreshold() {
-        return totalMoney >= GIFT_THRESHOLD;
+        return totalMoney >= Constants.GIFT_THRESHOLD;
     }
 
     public int getTotalMoney() { return totalMoney; }

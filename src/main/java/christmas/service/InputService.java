@@ -1,5 +1,7 @@
 package christmas.service;
 
+import christmas.constants.Constants;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +17,7 @@ public class InputService {
 
     public static Map<String, Integer> separateUserInputToDishes(String userInput) {
         validateUserInputIsNull(userInput);
-        String[] userInputs = userInput.split(WHOLE_SENTENCE_DELIMITER);
+        String[] userInputs = userInput.split(Constants.WHOLE_SENTENCE_DELIMITER);
         Map<String, Integer> result = new HashMap<String, Integer>();
         for(String eachInput : userInputs) {
             validateUserMenuInput(eachInput);
@@ -25,7 +27,7 @@ public class InputService {
     }
 
     private static void validateNPutEachInput(String eachInput, Map<String, Integer> result) {
-        List<String> eachDish = Arrays.asList(eachInput.split(EACH_DISH_DELIMITER));
+        List<String> eachDish = Arrays.asList(eachInput.split(Constants.EACH_DISH_DELIMITER));
         validateMenuDuplicated(eachDish.get(0), result);
         validateMenuQuantity(eachDish.get(1));
         result.put(eachDish.get(0),Integer.parseInt(eachDish.get(1)));

@@ -13,10 +13,10 @@ public class Constants {
     public static final int TOTAL_MENU_LIMIT = 20;
     public static final int MAX_INT_LENGTH = 9;
 
-    public static final int APPETIZER = 0;
-    public static final int MAIN = 1;
-    public static final int DESSERT = 2;
-    public static final int DRINK = 3;
+    public static final int APPETIZER_IDX = 0;
+    public static final int MAIN_IDX = 1;
+    public static final int DESSERT_IDX = 2;
+    public static final int DRINK_IDX = 3;
 
     public static final int DISCOUNT_THRESHOLD = 10000;
     public static final int GIFT_THRESHOLD = 120000;
