@@ -41,7 +41,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateMenuDuplicated(String userInputKey, HashMap<String, Integer> result) throws IllegalArgumentException {
+    public static void validateMenuDuplicated(String userInputKey, Map<String, Integer> result) throws IllegalArgumentException {
         if(result.containsKey(userInputKey)) {
             throw new IllegalArgumentException(ERROR_MESSAGE_MENU);
         }
